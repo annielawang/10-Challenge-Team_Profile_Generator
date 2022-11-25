@@ -1,1 +1,1 @@
-This is for helper template code.
+This folder is for helper template code.

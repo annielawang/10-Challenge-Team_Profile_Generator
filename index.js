@@ -84,11 +84,8 @@ var manager_prompt = function(){
     inquirer.prompt(questionsForManager).then((answers) => {
         // generate an incidence of Manager with input
         const manager = new Manager(answers.manager_name, answers.manager_ID, answers.manager_email, answers.manager_office_number);
-        console.log(manager);
-        // push the manager incidence object into an array for later use in html
+        // put the manager incidence object into an object for later use in html
         htmlObj["manager"] = manager;
-        console.log(htmlObj);
-
         // return to menu
         choice_prompt();
     })
@@ -98,7 +95,7 @@ var engineer_prompt = function(){
     inquirer.prompt(questionsForEngineer).then((answers) => {
         // generate an incidence of Engineer with input
         const engineer = new Engineer (answers.eng_name, answers.eng_ID, answers.eng_email, answers.eng_github_username);
-        // push the manager incidence object into an array for later use in html
+        // push the engineer incidence object into an array for later use in html
         engineers.push(engineer);
         // return to menu
         choice_prompt();
@@ -129,6 +126,7 @@ const choiceArray = [
         ],
     }
 ];
+
 // menu for manager to add more employee or finish
 var choice_prompt = function(){
     inquirer.prompt(choiceArray).then((answers) => {
@@ -137,9 +135,9 @@ var choice_prompt = function(){
         } else if(answers.choice === "Intern") {
             intern_prompt();
         } else if(answers.choice === "Finish") {
+            // put engineers array and interns array into an object for later use in html
             htmlObj["engineers"] = engineers;
             htmlObj["interns"] = interns;
-            console.log("before render", htmlObj);
             generateHtml();
         } else {
             console.error("Unexpected choice.");
@@ -147,10 +145,9 @@ var choice_prompt = function(){
     });
 }
 
+// generate html based on the input in CLI
 var generateHtml = function() {
-    // based on the input, generate html.
     fs.writeFile("./dist/index.html", renderHtmlObj.renderHtml(htmlObj), (err) => err ? console.error(err) : console.log('Success!'));
-    console.log(htmlObj);
 }
 
 // main entry

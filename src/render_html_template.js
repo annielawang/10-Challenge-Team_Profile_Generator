@@ -1,48 +1,10 @@
-/**
- * 
- * Option1: (liang) ---> Array
- * [
- * {},{},{}
- * ]
- * 
- * manager, engs, interns
- * 
- * Option2: -----> Map!!!!  X
- * {
- * "Manager": {}
- * "Engineer": []
- * "Intern": []
- * 
- * }
- * 
- * 
- */
-
-// const Engineer = require("../lib/engineer");
-// const Manager = require("../lib/manager");
-
-// var manager1 = new Manager("", "","","");
-// var eng1 = new Engineer("","","","");
-// var eng2 = new Engineer("","","","");
-// var eng3 = new Engineer("","","","");
-
-// var mockData = {};
-// mockData["Manager"] = manager1;
-// var engs = [];
-// engs.push(eng1);
-// engs.push(eng2);
-// engs.push(eng3);
-
-// mockData["Engineer"] = engs;
-// mockData["Intern"] = [];
-
-// var expectedStr = renderHtml(mockData);
-
+// templates for rendering html
+// template for manager card
 function buildManagerHtmlCard(manager){
     if(manager == undefined || manager === null)
         return "";
 
-    var managerCardHtml = `<div class="card mt-4 mb-2 mr-4 bg-info" style="width: 16rem; height:18rem">
+    var managerCardHtml = `<div class="card mt-4 mb-2 mr-4 bg-info" style="width: 20rem;">
     <div class="card-body mt-4">
         <h5 class="card-title">${manager.name}</h5>
         <h6 class="card-title">Manager</h6>
@@ -56,6 +18,7 @@ function buildManagerHtmlCard(manager){
     return managerCardHtml;
 }
 
+// template for engineer cards
 function buildEngineerHtmlCards(engineers){
     if(engineers == undefined || engineers === null || engineers.length === 0)
         return "";
@@ -64,14 +27,14 @@ function buildEngineerHtmlCards(engineers){
 
     for (let i = 0; i < engineers.length; i++) {
         const element = engineers[i];
-        var engineerCardHtml = `<div class="card mt-4 mb-2 mr-4 bg-info" style="width: 16rem; height:18rem">
+        var engineerCardHtml = `<div class="card mt-4 mb-2 mr-4 bg-info" style="width: 20rem;">
     <div class="card-body mt-4">
         <h5 class="card-title">${element.name}</h5>
         <h6 class="card-title">Engineer</h6>
         <ul class="list-group list-group-flush">
             <li class="list-group-item">ID: ${element.id}</li>
             <li class="list-group-item">Email: <a href="mailto:${element.email}">${element.email}</a></li>
-            <li class="list-group-item">GitHub: <a href="${element.github_username}">${element.github_username}</a></li>
+            <li class="list-group-item">GitHub: <a href="https://github.com/${element.github_username}" target="_blank" rel="noopener noreferrer">${element.github_username}</a></li>
         </ul>
     </div>
 </div>`;
@@ -80,6 +43,7 @@ function buildEngineerHtmlCards(engineers){
     return result;
 }
 
+// template for intern cards
 function buildInternHtmlCards(interns){
     if(interns == undefined || interns === null || interns.length === 0)
     return "";
@@ -87,7 +51,7 @@ function buildInternHtmlCards(interns){
     var result = "";
     for (let i = 0; i < interns.length; i++) {
         const element = interns[i];
-        var internCardHtml = `<div class="card mt-4 mb-2 mr-4 bg-info" style="width: 16rem; height:18rem">
+        var internCardHtml = `<div class="card mt-4 mb-2 mr-4 bg-info" style="width: 20rem;">
         <div class="card-body mt-4">
             <h5 class="card-title">${element.name}</h5>
             <h6 class="card-title">Intern</h6>
@@ -103,7 +67,7 @@ function buildInternHtmlCards(interns){
     return result;
 }
 
-function renderHtml(htmlObjArray) {
+function renderHtml(htmlObj) {
     var headerPart = `<!DOCTYPE html>
     <html lang="en">
     <head>
@@ -130,9 +94,9 @@ function renderHtml(htmlObjArray) {
 </body>
 </html>`;
     return `${headerPart} 
-    ${buildManagerHtmlCard(htmlObjArray.manager)} 
-    ${buildEngineerHtmlCards(htmlObjArray.engineers)} 
-    ${buildInternHtmlCards(htmlObjArray.interns)} 
+    ${buildManagerHtmlCard(htmlObj.manager)} 
+    ${buildEngineerHtmlCards(htmlObj.engineers)} 
+    ${buildInternHtmlCards(htmlObj.interns)} 
     ${footPart}`;
 } 
 
