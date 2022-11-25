@@ -20,7 +20,7 @@ To use this app, the user needs to install and use Inquirer version 8.2.4. To do
 ## Usage
 When the users are prompted for their team members and their information, then an HTML file is generated that displays a nicely formatted team roster based on user input.
 
-[Walkthrough video]
+[Walkthrough video](https://watch.screencastify.com/v/fvo5npjsi8gY5DCcFbXV)
 
 ## License
 MIT

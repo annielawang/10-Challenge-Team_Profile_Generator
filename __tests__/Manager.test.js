@@ -8,10 +8,10 @@ describe('Manager class', () => {
         const officeNumber = "8888";
         const output = new Manager(name, id, email, officeNumber);
         const expectedManagerIncidence = {
-            "name": "annie",
-            "id": 444,
-            "email": "annie@gmail.com",
-            "officeNumber": "8888",
+            "name": name,
+            "id": id,
+            "email": email,
+            "officeNumber": officeNumber,
         };
         expect(output).toEqual(expectedManagerIncidence);
     });

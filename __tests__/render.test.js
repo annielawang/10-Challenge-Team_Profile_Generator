@@ -3,11 +3,9 @@ const renderHtml = require("../src/render_html_template");
 
 describe('render html', () => {
     it('should return manager html with buildManagerHtmlCard function', () => {
-    //   expect(sum(1, 2)).toBe(3);
-    // input, output and expect
     const input = new Manager("ang", 12, "annielawang@gmail.com", 123);
     const output = renderHtml.buildManagerHtmlCard(input);
-    const expectedString = `<div class="card mt-4 mb-2 mr-4 bg-info" style="width: 16rem; height:18rem">
+    const expectedString = `<div class="card mt-4 mb-2 mr-4 bg-info" style="width: 20rem;">
     <div class="card-body mt-4">
         <h5 class="card-title">ang</h5>
         <h6 class="card-title">Manager</h6>
