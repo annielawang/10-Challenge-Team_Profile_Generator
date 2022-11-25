@@ -1,43 +1,5 @@
-/**
- * 
- * Option1: (liang) ---> Array
- * [
- * {},{},{}
- * ]
- * 
- * manager, engs, interns
- * 
- * Option2: -----> Map!!!!  X
- * {
- * "Manager": {}
- * "Engineer": []
- * "Intern": []
- * 
- * }
- * 
- * 
- */
-
-// const Engineer = require("../lib/engineer");
-// const Manager = require("../lib/manager");
-
-// var manager1 = new Manager("", "","","");
-// var eng1 = new Engineer("","","","");
-// var eng2 = new Engineer("","","","");
-// var eng3 = new Engineer("","","","");
-
-// var mockData = {};
-// mockData["Manager"] = manager1;
-// var engs = [];
-// engs.push(eng1);
-// engs.push(eng2);
-// engs.push(eng3);
-
-// mockData["Engineer"] = engs;
-// mockData["Intern"] = [];
-
-// var expectedStr = renderHtml(mockData);
-
+// templates for rendering html
+// template for manager card
 function buildManagerHtmlCard(manager){
     if(manager == undefined || manager === null)
         return "";
@@ -56,6 +18,7 @@ function buildManagerHtmlCard(manager){
     return managerCardHtml;
 }
 
+// template for engineer cards
 function buildEngineerHtmlCards(engineers){
     if(engineers == undefined || engineers === null || engineers.length === 0)
         return "";
@@ -80,6 +43,7 @@ function buildEngineerHtmlCards(engineers){
     return result;
 }
 
+// template for intern cards
 function buildInternHtmlCards(interns){
     if(interns == undefined || interns === null || interns.length === 0)
     return "";
@@ -103,7 +67,7 @@ function buildInternHtmlCards(interns){
     return result;
 }
 
-function renderHtml(htmlObjArray) {
+function renderHtml(htmlObj) {
     var headerPart = `<!DOCTYPE html>
     <html lang="en">
     <head>
@@ -130,9 +94,9 @@ function renderHtml(htmlObjArray) {
 </body>
 </html>`;
     return `${headerPart} 
-    ${buildManagerHtmlCard(htmlObjArray.manager)} 
-    ${buildEngineerHtmlCards(htmlObjArray.engineers)} 
-    ${buildInternHtmlCards(htmlObjArray.interns)} 
+    ${buildManagerHtmlCard(htmlObj.manager)} 
+    ${buildEngineerHtmlCards(htmlObj.engineers)} 
+    ${buildInternHtmlCards(htmlObj.interns)} 
     ${footPart}`;
 } 
 
