@@ -4,7 +4,7 @@ function buildManagerHtmlCard(manager){
     if(manager == undefined || manager === null)
         return "";
 
-    var managerCardHtml = `<div class="card mt-4 mb-2 mr-4 bg-info" style="width: 16rem; height:18rem">
+    var managerCardHtml = `<div class="card mt-4 mb-2 mr-4 bg-info" style="width: 20rem;">
     <div class="card-body mt-4">
         <h5 class="card-title">${manager.name}</h5>
         <h6 class="card-title">Manager</h6>
@@ -27,14 +27,14 @@ function buildEngineerHtmlCards(engineers){
 
     for (let i = 0; i < engineers.length; i++) {
         const element = engineers[i];
-        var engineerCardHtml = `<div class="card mt-4 mb-2 mr-4 bg-info" style="width: 16rem; height:18rem">
+        var engineerCardHtml = `<div class="card mt-4 mb-2 mr-4 bg-info" style="width: 20rem;">
     <div class="card-body mt-4">
         <h5 class="card-title">${element.name}</h5>
         <h6 class="card-title">Engineer</h6>
         <ul class="list-group list-group-flush">
             <li class="list-group-item">ID: ${element.id}</li>
             <li class="list-group-item">Email: <a href="mailto:${element.email}">${element.email}</a></li>
-            <li class="list-group-item">GitHub: <a href="${element.github_username}">${element.github_username}</a></li>
+            <li class="list-group-item">GitHub: <a href="https://github.com/${element.github_username}">${element.github_username}</a></li>
         </ul>
     </div>
 </div>`;
@@ -51,7 +51,7 @@ function buildInternHtmlCards(interns){
     var result = "";
     for (let i = 0; i < interns.length; i++) {
         const element = interns[i];
-        var internCardHtml = `<div class="card mt-4 mb-2 mr-4 bg-info" style="width: 16rem; height:18rem">
+        var internCardHtml = `<div class="card mt-4 mb-2 mr-4 bg-info" style="width: 20rem;">
         <div class="card-body mt-4">
             <h5 class="card-title">${element.name}</h5>
             <h6 class="card-title">Intern</h6>
